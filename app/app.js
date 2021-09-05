@@ -101,7 +101,8 @@ play.onclick = () => {
     play.disabled = true;
     play.style.opacity = ".5";
     pause.disabled = false;
-    reset.
+    reset.disabled = false;
+    reset.style.opacity = "1";
     pause.style.opacity = "1";
   };
 };
