@@ -56,34 +56,55 @@ let reset = document.getElementById("reset");
 let pause = document.getElementById("pause");
 let audio = document.getElementById("audio");
 
+reset.style.opacity = ".5";
+pause.style.opacity = ".5";
 
-reset.style.opacity = ".5"
-pause.style.opacity = ".5"
+reset.disabled = true;
+pause.disabled = true;
 
+let isPaused = false;
 play.onclick = () => {
   audio.play();
   play.disabled = true;
-  play.style.opacity = ".5"
-  reset.style.opacity = "1"
-  pause.style.opacity = "1"
+  pause.disabled = false;
+  play.style.opacity = ".5";
+  reset.style.opacity = "1";
+  pause.style.opacity = "1";
   reset.disabled = false;
+
   setInterval(() => {
-    seconds--;
-    console.log(minutes, seconds);
-    if (seconds === 0) {
-      minutes--;
-      seconds = 60;
+    if (!isPaused) {
+      seconds--;
+      console.log(minutes, seconds);
+      if (seconds === 0) {
+        minutes--;
+        seconds = 60;
+      }
+      minutesText.textContent = minutes;
+      secondsText.textContent = seconds;
     }
-    minutesText.textContent = minutes;
-    secondsText.textContent = seconds;
   }, 1000);
+
+  pause.onclick = (e) => {
+    e.preventDefault();
+    isPaused = true;
+    play.disabled = false;
+    play.style.opacity = "1";
+    pause.disabled = true;
+    pause.style.opacity = ".5";
+  };
+  play.onclick = (e) => {
+    e.preventDefault();
+    isPaused = false;
+    play.disabled = true;
+    play.style.opacity = ".5";
+    pause.disabled = false;
+    pause.style.opacity = "1";
+  };
 };
 
 reset.onclick = () => {
-    audio.play();
-    play.disabled = false;
-    
-    reset.disabled = true;
+  audio.play();
   minutes = 24;
   seconds = 60;
 };
