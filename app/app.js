@@ -84,7 +84,11 @@ play.onclick = () => {
       secondsText.textContent = seconds;
     }
   }, 1000);
-
+  reset.onclick = () => {
+    audio.play();
+    minutes = 24;
+    seconds = 60;
+  };
   pause.onclick = (e) => {
     e.preventDefault();
     isPaused = true;
@@ -101,10 +105,4 @@ play.onclick = () => {
     pause.disabled = false;
     pause.style.opacity = "1";
   };
-};
-
-reset.onclick = () => {
-  audio.play();
-  minutes = 24;
-  seconds = 60;
 };
