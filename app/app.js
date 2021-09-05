@@ -75,17 +75,35 @@ play.onclick = () => {
   setInterval(() => {
     if (!isPaused) {
       seconds--;
+
       console.log(minutes, seconds);
       if (seconds === 0) {
         minutes--;
         seconds = 60;
       }
-      minutesText.textContent = minutes;
-      secondsText.textContent = seconds;
+
+      if (minutes < 10) {
+        minutesText.textContent = `0${minutes}`;
+      } else {
+        minutesText.textContent = minutes;
+      }
+
+      if (seconds < 10) {
+        secondsText.textContent = `0${seconds}`;
+      } else {
+        secondsText.textContent = seconds;
+      }
     }
   }, 1000);
- 
+
+  reset.onclick = () => {
+    audio.play();
+    minutes = 24;
+    seconds = 60;
+  };
+
   pause.onclick = (e) => {
+    audio.play();
     e.preventDefault();
     isPaused = true;
     play.disabled = false;
@@ -96,6 +114,7 @@ play.onclick = () => {
     reset.style.opacity = ".5";
   };
   play.onclick = (e) => {
+    audio.play();
     e.preventDefault();
     isPaused = false;
     play.disabled = true;
