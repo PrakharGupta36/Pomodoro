@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="app/style.css" />
+    <link rel="stylesheet" href="app/slider.css" />
+    <link rel="icon" href="assets/icons/icon.svg" />
+    
+  </head>
+  <body>
+    <header>
+      <h1>pomodoro</h1>
+    </header>
+    <main>
+      <section class="toggle" id="toggle">
+        <button id="pomodoro" class="active toggleButton">pomodoro</button>
+        <button id="shortBreak" class="toggleButton">short break</button>
+        <button id="longBreak" class="toggleButton">long break</button>
+      </section>
+
+      <section class="toggleClock" id="toggleClock">
+        <div class="toggleInner">
+          <section id="time">
+            <span id="minutesText">25</span>
+            <span id="colon">:</span>
+            <span id="secondsText">00</span>
+          </section>
+          <audio src="assets/sounds/Mouse-Click-00-c-FesliyanStudios.com (1).mp3" id="audio"></audio>
+          <section id="pausePLay">
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+          </section>
+        </div>
+      </section>
+      <section id="settings">
+        <button id="settingButton">
+          <img src="assets/icons/settings.svg" alt="" width="40px" />
+        </button>
+        <section id="settingsDiv">
+          <div class="setting-grid-1">
+            <p>Settings</p>
+            <button id="close">
+              <img src="assets/icons/close.svg" alt="" />
+            </button>
+          </div>
+          <div class="setting-grid-2">
+            <p>Time (minutes)</p>
+            <div class="setting-grid-2-1">
+              <div>
+                <p>poromodo</p>
+                <input type="number" name="" id="" />
+              </div>
+              <div>
+                <p>shortbreak</p>
+                <input type="number" name="" id="" />
+              </div>
+              <div>
+                <p>longbreak</p>
+                <input type="number" name="" id="" />
+              </div>
+            </div>
+          </div>
+          <div class="setting-grid-3">
+            <p>Font</p>
+            <div class="setting-grid-3-1">
+              <div class="fontCircle">
+                <p>Aa</p>
+              </div>
+              <div class="fontCircle">
+                <p>Aa</p>
+              </div>
+              <div class="fontCircle">
+                <p>Aa</p>
+              </div>
+            </div>
+          </div>
+          <div class="setting-grid-3">
+            <p>Colors</p>
+            <div class="setting-grid-3-1">
+              <div class="colorCircle color1"></div>
+              <div class="colorCircle color2"></div>
+              <div class="colorCircle color3"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="app/toggle.js"></script>
+    <script src="app/app.js"></script>
+    
+    
+  </body>
+</html>
