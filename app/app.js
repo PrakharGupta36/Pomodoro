@@ -84,18 +84,16 @@ play.onclick = () => {
       secondsText.textContent = seconds;
     }
   }, 1000);
-  reset.onclick = () => {
-    audio.play();
-    minutes = 24;
-    seconds = 60;
-  };
+ 
   pause.onclick = (e) => {
     e.preventDefault();
     isPaused = true;
     play.disabled = false;
     play.style.opacity = "1";
     pause.disabled = true;
+    reset.disabled = true;
     pause.style.opacity = ".5";
+    reset.style.opacity = ".5";
   };
   play.onclick = (e) => {
     e.preventDefault();
@@ -103,6 +101,7 @@ play.onclick = () => {
     play.disabled = true;
     play.style.opacity = ".5";
     pause.disabled = false;
+    reset.
     pause.style.opacity = "1";
   };
 };
