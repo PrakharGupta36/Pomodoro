@@ -132,9 +132,6 @@ play.onclick = () => {
 };
 
 pomodoro.onclick = () => {
-  minutesText.textContent = 24;
-  secondsText.textContent = 60;
-
   pomodoro.classList.add("active");
   shortBreak.classList.remove("active");
   longBreak.classList.remove("active");
@@ -142,45 +139,6 @@ pomodoro.onclick = () => {
 };
 
 shortBreak.onclick = () => {
-  let minutesShort = 0;
-  let secondsShort = 10;
-  pomodoro.disabled = true;
-  longBreak.disabled = true;
-  pomodoro.style.opacity = ".5";
-  longBreak.style.opacity = ".5";
-  setInterval(() => {
-    if (!isPaused) {
-      secondsShort--;
-
-      console.log(minutesShort, secondsShort);
-
-      if (secondsShort === 0) {
-        minutesShort--;
-        secondsShort = 60;
-      }
-
-      if (minutesShort < 10) {
-        minutesText.textContent = `0${minutesShort}`;
-      } else {
-        minutesText.textContent = minutesShort;
-      }
-
-      if (secondsShort < 10) {
-        secondsText.textContent = `0${secondsShort}`;
-      } else {
-        secondsText.textContent = secondsShort;
-      }
-
-      if (minutesShort === 0) {
-        pomodoro.disabled = false;
-        longBreak.disabled = false;
-        pomodoro.style.opacity = "1";
-        longBreak.style.opacity = "1";
-      }
-      
-    }
-  }, 1000);
-
   pomodoro.classList.remove("active");
   shortBreak.classList.add("active");
   longBreak.classList.remove("active");
@@ -188,37 +146,6 @@ shortBreak.onclick = () => {
 };
 
 longBreak.onclick = () => {
-  let minutesLong = 14;
-  let secondsLong = 60;
-  setInterval(() => {
-    if (!isPaused) {
-      secondsLong--;
-
-      console.log(minutesLong, secondsLong);
-      if (secondsLong === 0) {
-        minutesLong--;
-        secondsLong = 60;
-      }
-
-      if (minutesLong < 10) {
-        minutesText.textContent = `0${minutesLong}`;
-      } else {
-        minutesText.textContent = minutesLong;
-      }
-
-      if (secondsLong < 10) {
-        secondsText.textContent = `0${secondsLong}`;
-      } else {
-        secondsText.textContent = secondsLong;
-      }
-
-      if (minutesLong < 0 && secondsLong < 0) {
-        minutesText.textContent = `Break Done`;
-        secondsText.textContent = ``;
-      }
-    }
-  }, 1000);
-
   pomodoro.classList.remove("active");
   shortBreak.classList.remove("active");
   longBreak.classList.add("active");
