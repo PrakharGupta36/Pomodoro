@@ -50,9 +50,9 @@ main {
 }
 
 .active {
-  background-color: #fa6e73;
+  background-color: #fc595e;
   color: white;
-
+  font-weight: bold;
   border-radius: 20px;
 }
 
